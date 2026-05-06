@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 11 Biology — 2-Day Survival Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --surface: #111827;
+  --surface2: #1a2234;
+  --border: #2a3550;
+  --border2: #3a4a6a;
+  --text: #e8edf8;
+  --muted: #8a9ab8;
+  --green: #22d3a0;
+  --green-bg: rgba(34,211,160,0.08);
+  --green-border: rgba(34,211,160,0.25);
+  --amber: #f59e0b;
+  --amber-bg: rgba(245,158,11,0.08);
+  --amber-border: rgba(245,158,11,0.25);
+  --red: #f87171;
+  --red-bg: rgba(248,113,113,0.08);
+  --red-border: rgba(248,113,113,0.25);
+  --blue: #60a5fa;
+  --blue-bg: rgba(96,165,250,0.08);
+  --blue-border: rgba(96,165,250,0.25);
+  --purple: #a78bfa;
+  --purple-bg: rgba(167,139,250,0.08);
+  --purple-border: rgba(167,139,250,0.25);
+  --teal: #2dd4bf;
+  --font: 'Sora', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.7;min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:6px;overflow-x:auto;padding:10px 0}
+.nav-inner::-webkit-scrollbar{height:0}
+.nav-btn{flex-shrink:0;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;letter-spacing:.03em}
+.nav-btn:hover{border-color:var(--border2);color:var(--text)}
+.nav-btn.active{background:var(--green-bg);border-color:var(--green-border);color:var(--green)}
+.nav-logo{font-size:13px;font-weight:800;color:var(--green);margin-right:12px;flex-shrink:0;letter-spacing:-.02em}
+
+/* LAYOUT */
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+.page{display:none}
+.page.active{display:block}
+
+/* HERO */
+.hero{text-align:center;padding:3rem 0 2.5rem}
+.hero-tag{display:inline-block;background:var(--green-bg);border:1px solid var(--green-border);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 14px;border-radius:20px;margin-bottom:1.25rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:.75rem}
+.hero h1 span{color:var(--green)}
+.hero-sub{color:var(--muted);font-size:14px;max-width:500px;margin:0 auto}
+.hero-stats{display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-size:2rem;font-weight:800;color:var(--green);letter-spacing:-.04em}
+.stat-l{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* SECTION TITLES */
+.sec-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.sec-title::before{content:'';display:block;width:3px;height:14px;background:var(--green);border-radius:2px}
+h2.page-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:2rem}
+h2.page-title .accent{color:var(--green)}
+
+/* PRIORITY CARDS */
+.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin-bottom:2.5rem}
+.ch-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color .2s}
+.ch-card:hover{border-color:var(--border2)}
+.ch-card.very-high{border-left:3px solid var(--red)}
+.ch-card.high{border-left:3px solid var(--amber)}
+.ch-card.medium{border-left:3px solid var(--blue)}
+.ch-card.low{border-left:3px solid var(--muted)}
+.ch-head{display:flex;align-items:center;gap:10px;margin-bottom:.75rem}
+.ch-badge{font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:20px;text-transform:uppercase;flex-shrink:0}
+.badge-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.badge-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.badge-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.badge-gray{background:rgba(138,154,184,0.1);color:var(--muted);border:1px solid rgba(138,154,184,0.2)}
+.badge-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.badge-purple{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-border)}
+.ch-name{font-size:14px;font-weight:700;color:var(--text)}
+.ch-rows{display:flex;flex-direction:column;gap:5px}
+.ch-row{display:flex;gap:8px;font-size:12px}
+.ch-label{color:var(--muted);min-width:80px;flex-shrink:0}
+.ch-val{color:var(--text)}
+.dot-list{list-style:none;padding:0;margin-top:.5rem;display:flex;flex-direction:column;gap:3px}
+.dot-list li{font-size:12px;color:var(--muted);padding-left:14px;position:relative}
+.dot-list li::before{content:'›';position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* HOUR PLAN */
+.hour-plan{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.5rem}
+.hour-block{display:grid;grid-template-columns:160px 1fr;gap:1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;align-items:start}
+.hour-time{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--green);line-height:1.5}
+.hour-phase{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.hour-tasks{font-size:13px;color:var(--text);line-height:1.6}
+@media(max-width:600px){.hour-block{grid-template-columns:1fr}.hour-time{margin-bottom:4px}}
+
+/* BRANCH TABLES */
+.branch-wrap{margin-bottom:2.5rem}
+.branch-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+.branch-title .icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;font-size:12px;background:var(--purple-bg);border:1px solid var(--purple-border)}
+.table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--surface2)}
+th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid rgba(42,53,80,.5);vertical-align:top;line-height:1.55}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+tr:hover td{background:rgba(96,165,250,.04)}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.04em}
+.t-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.t-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.t-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.t-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.t-purple{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-border)}
+.t-gray{background:rgba(138,154,184,0.1);color:var(--muted)}
+
+/* Q BANK */
+.q-grid{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
+.q-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;display:flex;gap:12px;align-items:flex-start;transition:border-color .2s}
+.q-item:hover{border-color:var(--border2)}
+.q-num{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--green);min-width:24px;flex-shrink:0;padding-top:1px}
+.q-text{font-size:13px;color:var(--text);line-height:1.55}
+.q-type{font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle}
+
+/* DIAGRAMS */
+.diag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.75rem;margin-bottom:2rem}
+.diag-card{background:var(--surface);border:1px solid var(--purple-border);border-radius:10px;padding:1rem;display:flex;gap:10px;align-items:center}
+.diag-icon{font-size:20px;flex-shrink:0}
+.diag-info{display:flex;flex-direction:column;gap:3px}
+.diag-name{font-size:13px;font-weight:600;color:var(--text)}
+.diag-note{font-size:11px;color:var(--muted)}
+
+/* PREDICTION */
+.pred-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem}
+.pred-card{border-radius:12px;padding:1.25rem}
+.pred-card.g{background:var(--green-bg);border:1px solid var(--green-border)}
+.pred-card.a{background:var(--amber-bg);border:1px solid var(--amber-border)}
+.pred-card.r{background:var(--red-bg);border:1px solid var(--red-border)}
+.pred-card.b{background:var(--blue-bg);border:1px solid var(--blue-border)}
+.pred-head{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem}
+.pred-card.g .pred-head{color:var(--green)}
+.pred-card.a .pred-head{color:var(--amber)}
+.pred-card.r .pred-head{color:var(--red)}
+.pred-card.b .pred-head{color:var(--blue)}
+.pred-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.pred-list li{font-size:12px;color:var(--text);padding-left:16px;position:relative;line-height:1.55}
+.pred-card.g .pred-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.pred-card.a .pred-list li::before{content:'★';position:absolute;left:0;color:var(--amber)}
+.pred-card.r .pred-list li::before{content:'!';position:absolute;left:0;color:var(--red);font-weight:700}
+.pred-card.b .pred-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+
+/* TIPS */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.75rem;margin-bottom:2rem}
+.tip-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.tip-num{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:.35rem}
+.tip-text{font-size:13px;color:var(--text);line-height:1.55}
+
+/* CHECKLIST */
+.checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.5rem;margin-bottom:2rem}
+.check-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;font-size:13px;color:var(--text);display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;user-select:none}
+.check-item:hover{border-color:var(--green-border)}
+.check-item.done{border-color:var(--green-border);background:var(--green-bg)}
+.check-item.done .check-box{background:var(--green);border-color:var(--green)}
+.check-item.done .check-box::after{opacity:1}
+.check-item.done span{color:var(--muted);text-decoration:line-through}
+.check-box{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--border2);flex-shrink:0;position:relative;transition:all .2s}
+.check-box::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:white;opacity:0;transition:opacity .15s;font-weight:700}
+
+/* DAY HEADER */
+.day-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem}
+.day-badge{font-size:2.5rem;font-weight:800;color:var(--green);letter-spacing:-.05em;font-family:var(--mono)}
+.day-info h2{font-size:1.4rem;font-weight:800;letter-spacing:-.03em}
+.day-info p{font-size:13px;color:var(--muted)}
+
+/* MISC */
+.info-box{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;font-size:13px;line-height:1.6}
+.info-box strong{color:var(--green)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">BIO301</span>
+    <button class="nav-btn active" onclick="showPage('home',this)">Overview</button>
+    <button class="nav-btn" onclick="showPage('day1',this)">Day 1 — Botany</button>
+    <button class="nav-btn" onclick="showPage('day2',this)">Day 2 — Zoology</button>
+    <button class="nav-btn" onclick="showPage('branches',this)">Branch Tables</button>
+    <button class="nav-btn" onclick="showPage('qbank',this)">Must-Do Questions</button>
+    <button class="nav-btn" onclick="showPage('predict',this)">HISSAN Prediction</button>
+    <button class="nav-btn" onclick="showPage('checklist',this)">Checklist</button>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+<div class="container">
+  <div class="hero">
+    <div class="hero-tag">Emergency Preparation · Grade 11 HISSAN · Bio 301</div>
+    <h1>2-Day <span>Biology</span><br>Survival Guide</h1>
+    <p class="hero-sub">Maximum marks, minimum time. Based on real HISSAN question pattern from Sets 1–8.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">75</div><div class="stat-l">Total Marks</div></div>
+      <div class="stat"><div class="stat-n">40</div><div class="stat-l">Must-Do Questions</div></div>
+      <div class="stat"><div class="stat-n">16</div><div class="stat-l">Key Diagrams</div></div>
+      <div class="stat"><div class="stat-n">2</div><div class="stat-l">Days Left</div></div>
+    </div>
+  </div>
+
+  <div class="sec-title">Exam structure at a glance</div>
+  <div class="table-wrap" style="margin-bottom:2rem">
+    <table>
+      <thead><tr><th>Group</th><th>Type</th><th>Questions</th><th>Marks each</th><th>Total</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Multiple Choice (MCQ)</td><td>11</td><td>1</td><td><span class="tag t-blue">11</span></td><td>~25 min</td></tr>
+        <tr><td>B</td><td>Short Answer (SAQ)</td><td>8</td><td>5</td><td><span class="tag t-amber">40</span></td><td rowspan="2">~155 min</td></tr>
+        <tr><td>C</td><td>Long Answer (LAQ)</td><td>3</td><td>8</td><td><span class="tag t-red">24</span></td></tr>
+        <tr><td colspan="4" style="font-weight:700">Grand Total</td><td><span class="tag t-green">75</span></td><td>3 hours</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-title">2-day battle plan</div>
+  <div class="two-col">
+    <div class="pred-card g">
+      <div class="pred-head">Day 1 — Botany (Part A)</div>
+      <ul class="pred-list">
+        <li>Floral Diversity — Angiosperm families (18 marks weight)</li>
+        <li>Fungi — Mucor &amp; Yeast life cycle</li>
+        <li>Cell Biology — organelles + meiosis diagram</li>
+        <li>Ecology — food chains, N₂ cycle, pyramids</li>
+        <li>Microbiology — bacterial cell + virus</li>
+        <li>Algae (Spirogyra) + Bryophyta (Marchantia)</li>
+      </ul>
+    </div>
+    <div class="pred-card b">
+      <div class="pred-head">Day 2 — Zoology (Part B)</div>
+      <ul class="pred-list">
+        <li>Earthworm — digestive + excretory system (8–10 marks)</li>
+        <li>Frog — heart + digestive + reproductive system</li>
+        <li>Evolutionary Biology — Darwin + Oparin-Haldane</li>
+        <li>Plasmodium life cycle + Paramecium conjugation</li>
+        <li>Phylum classification — 1-liner features for MCQ</li>
+        <li>Biota &amp; Environment — pollution + adaptation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title">Smart exam strategy</div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-num">TIP 01</div><div class="tip-text">Start with Group A MCQs. Takes only 20 minutes and guarantees 11 marks.</div></div>
+    <div class="tip-card"><div class="tip-num">TIP 02</div><div class="tip-text">In Group B, always attempt all 8 SAQs. Partial answers still get partial marks.</div></div>
+    <div class="tip-card"><div class="tip-num">TIP 03</div><div class="tip-text">For LAQ: intro (1 line) → labelled diagram → description → economic importance → conclusion.</div></div>
+    <div class="tip-card"><div class="tip-num">TIP 04</div><div class="tip-text">Even with weak theory, a neat labelled diagram alone gets you 4/8 marks in LAQ.</div></div>
+    <div class="tip-card"><div class="tip-num">TIP 05</div><div class="tip-text">Use OR questions to pick whichever chapter you're more confident in. Never leave blank.</div></div>
+    <div class="tip-card"><div class="tip-num">TIP 06</div><div class="tip-text">Keep 15 min at the end to recheck all MCQ answers — these are the easiest marks to fix.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- DAY 1 BOTANY -->
+<div id="day1" class="page">
+<div class="container">
+  <div class="day-header">
+    <div class="day-badge">D1</div>
+    <div class="day-info">
+      <h2>Botany — Part A</h2>
+      <p>Chapters, priority ranking, diagrams and hour-by-hour study plan</p>
+    </div>
+  </div>
+
+  <div class="sec-title">Chapter priority</div>
+  <div class="chapter-grid">
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Floral Diversity — Angiosperm</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">100% — always in LAQ + MCQ</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~18 unit marks</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Floral formula + diagram of all 4 families. Economic importance.</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">✦ Compulsory — Solanaceae, Brassicaceae, Fabaceae, Liliaceae</span></div>
+      </div>
+    </div>
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Ecology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">95% — SAQ most common</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~9 unit marks</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Food chain/web, trophic levels, ecological pyramid, N₂ + carbon cycle, succession, greenhouse effect, acid rain</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">Nitrogen cycle — must memorize</span></div>
+      </div>
+    </div>
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Biomolecules &amp; Cell Biology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">90% — MCQ heavy + SAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~9 unit marks</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Cell organelle functions, meiosis/mitosis stages, DNA nitrogen base pairing (A=T, G≡C)</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">Mitosis/Meiosis stages — very likely</span></div>
+      </div>
+    </div>
+    <div class="ch-card high">
+      <div class="ch-head"><span class="ch-badge badge-amber">High</span><span class="ch-name">Fungi — Mucor &amp; Yeast</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">85% — LAQ on life cycle</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~8 as LAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Life cycle of Mucor (labelled), sexual reproduction of Yeast, economic importance of Fungi</span></div>
+      </div>
+    </div>
+    <div class="ch-card high">
+      <div class="ch-head"><span class="ch-badge badge-amber">High</span><span class="ch-name">Introductory Microbiology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">80% — full spec row in grid</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~3–8 unit marks</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Bacterial cell diagram, nutrition modes, virus structure, bacteriophage lytic/lysogenic cycle, biotechnology in medicine</span></div>
+      </div>
+    </div>
+    <div class="ch-card high">
+      <div class="ch-head"><span class="ch-badge badge-amber">High</span><span class="ch-name">Algae (Spirogyra) + Bryophyta (Marchantia)</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">75%</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Spirogyra conjugation diagram, alternation of generations (Bryophyta vs Pteridophyta), Marchantia structure</span></div>
+      </div>
+    </div>
+    <div class="ch-card medium">
+      <div class="ch-head"><span class="ch-badge badge-blue">Medium</span><span class="ch-name">Gymnosperms — Pinus</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">60%</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Male cone diagram, mycorrhizal roots, economic importance of Pinus</span></div>
+      </div>
+    </div>
+    <div class="ch-card medium">
+      <div class="ch-head"><span class="ch-badge badge-blue">Medium</span><span class="ch-name">Vegetation &amp; Conservation Biology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">55% — SAQ/MCQ only</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">In-situ vs ex-situ, IUCN categories, vegetation zones of Nepal</span></div>
+      </div>
+    </div>
+    <div class="ch-card low">
+      <div class="ch-head"><span class="ch-badge badge-gray">Skip if rushed</span><span class="ch-name">Pteridophyta (Dryopteris)</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Note</span><span class="ch-val">Only 1–2 MCQ usually. Skip deep study unless you have extra time.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-title">Must-practice diagrams — Botany</div>
+  <div class="diag-grid">
+    <div class="diag-card"><div class="diag-icon">🌸</div><div class="diag-info"><div class="diag-name">Solanaceae floral diagram</div><div class="diag-note">Most repeated — draw 3× today</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🌼</div><div class="diag-info"><div class="diag-name">Brassicaceae floral diagram</div><div class="diag-note">Cross-shaped corolla, tetradynamous stamen</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🍄</div><div class="diag-info"><div class="diag-name">Mucor life cycle</div><div class="diag-note">All stages labelled including sporangiophore</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🔬</div><div class="diag-info"><div class="diag-name">Meiosis-I stages diagram</div><div class="diag-note">Disjunction of homologous chromosomes</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🦠</div><div class="diag-info"><div class="diag-name">Bacterial cell (labelled)</div><div class="diag-note">Cell wall, plasma membrane, nucleoid, flagella, pili</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🌿</div><div class="diag-info"><div class="diag-name">Spirogyra conjugation</div><div class="diag-note">Scalariform + lateral conjugation</div></div></div>
+    <div class="diag-card"><div class="diag-icon">♻️</div><div class="diag-info"><div class="diag-name">Nitrogen cycle</div><div class="diag-note">Fixation → nitrification → denitrification</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🌱</div><div class="diag-info"><div class="diag-name">Marchantia thallus structure</div><div class="diag-note">Dorsal surface, air pores, rhizoids</div></div></div>
+  </div>
+
+  <div class="sec-title">Hour-by-hour plan — Day 1</div>
+  <div class="hour-plan">
+    <div class="hour-block">
+      <div><div class="hour-phase">Morning</div><div class="hour-time">6:00 – 8:00 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Angiosperm Families</strong> — Memorize floral formulas of all 4 families. Draw floral diagrams twice each. Write economic importance in bullet points. Practice writing a full Solanaceae LAQ answer.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Morning</div><div class="hour-time">8:00 – 9:30 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Fungi: Mucor + Yeast</strong> — Draw Mucor life cycle with all labels. Write sexual reproduction of Yeast step-by-step. Memorize 3 economic importances of Fungi. Structure an 8-mark LAQ answer.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Morning</div><div class="hour-time">9:30 – 11:00 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Cell Biology + Biomolecules</strong> — Memorize cell organelle function list. Nitrogen base pairing: A=T (2 bonds), G≡C (3 bonds). Draw Mitosis/Meiosis-I stages. Make a difference table: mitosis vs meiosis.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Late Morning</div><div class="hour-time">11:00 AM – 12:30 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Microbiology</strong> — Draw and label bacterial cell. Virus structure (head, tail, base plate). Bacteriophage lytic vs lysogenic. Biotechnology in medicine: 5 points. Solve all MCQs from microbiology sets.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Afternoon</div><div class="hour-time">1:30 – 3:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Ecology</strong> — Food chain → food web → trophic levels → ecological pyramids (energy/number/biomass). Nitrogen cycle + carbon cycle. Greenhouse effect causes + effects. Acid rain. Concept of succession.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Afternoon</div><div class="hour-time">3:00 – 4:30 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Algae, Bryophyta, Gymnosperms</strong> — Spirogyra conjugation diagram. Alternation of generations difference table. Marchantia structure. Pinus male cone diagram. Mycorrhiza function.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Evening</div><div class="hour-time">4:30 – 6:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Conservation + Vegetation (light)</strong> — IUCN categories: extinct/endangered/vulnerable/rare/threatened — definitions only. In-situ vs ex-situ comparison table. Nepal vegetation zones. 5 important national parks.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Night</div><div class="hour-time">7:00 – 9:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Full Botany Revision</strong> — Redraw all 8 diagrams from memory. Practice 3 LAQ answers timed. Read all definitions once. Mark weak spots and revisit. Sleep by 9:30 PM — rest is exam preparation.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- DAY 2 ZOOLOGY -->
+<div id="day2" class="page">
+<div class="container">
+  <div class="day-header">
+    <div class="day-badge">D2</div>
+    <div class="day-info">
+      <h2>Zoology — Part B</h2>
+      <p>Chapters, priority ranking, diagrams and hour-by-hour study plan</p>
+    </div>
+  </div>
+
+  <div class="sec-title">Chapter priority</div>
+  <div class="chapter-grid">
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Earthworm — Pheretima posthuma</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">95% — LAQ almost guaranteed</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~8–10 marks as LAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Digestive system (alimentary canal), excretory system (septal nephridia), reproductive system, cocoon formation, economic importance</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">✦ Septal nephridium + TS through pharynx — very high chance</span></div>
+      </div>
+    </div>
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Frog — Rana tigrina</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">95% — always SAQ or LAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~8–10 marks as LAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Digestive glands + alimentary canal, heart structure + mechanism, respiratory system, female reproductive organs</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">✦ Internal heart structure + alimentary canal</span></div>
+      </div>
+    </div>
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Evolutionary Biology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">90% — LAQ + SAQ</span></div>
+        <div class="ch-row"><span class="ch-label">Marks</span><span class="ch-val">~9 unit marks</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Oparin-Haldane theory, Miller-Urey experiment, Darwin's natural selection + drawbacks, Neo-Darwinism, human evolution sequence, evidences of evolution</span></div>
+      </div>
+    </div>
+    <div class="ch-card very-high">
+      <div class="ch-head"><span class="ch-badge badge-red">Very High</span><span class="ch-name">Protozoa — Plasmodium + Paramecium</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">90% — SAQ + MCQ</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Paramecium structure, trichocyst, conjugation diagram. Plasmodium full life cycle, malaria stages, signet ring, sporogony, schizogony</span></div>
+        <div class="ch-row"><span class="ch-label">Diagrams</span><span class="ch-val">✦ Life cycle of Plasmodium — very high chance</span></div>
+      </div>
+    </div>
+    <div class="ch-card high">
+      <div class="ch-head"><span class="ch-badge badge-amber">High</span><span class="ch-name">Faunal Diversity — Phylum Classification</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">80% — mostly MCQ</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">1-line characteristic of each phylum: Porifera, Cnidaria, Platyhelminthes, Annelida, Arthropoda, Mollusca, Echinodermata, Chordata</span></div>
+      </div>
+    </div>
+    <div class="ch-card high">
+      <div class="ch-head"><span class="ch-badge badge-amber">High</span><span class="ch-name">Biota &amp; Environment</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Probability</span><span class="ch-val">75%</span></div>
+        <div class="ch-row"><span class="ch-label">Must do</span><span class="ch-val">Animal adaptations (aquatic/terrestrial types), reflex arc, fish migration, bird migration, air/water/soil pollution (sources + effects + control)</span></div>
+      </div>
+    </div>
+    <div class="ch-card medium">
+      <div class="ch-head"><span class="ch-badge badge-blue">Low effort</span><span class="ch-name">Introduction to Biology</span></div>
+      <div class="ch-rows">
+        <div class="ch-row"><span class="ch-label">Note</span><span class="ch-val">Only 1 MCQ. Know: Herpetology (reptiles/amphibians), Ethology (animal behavior), Ornithology (birds), Ichthyology (fish).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-title">Must-practice diagrams — Zoology</div>
+  <div class="diag-grid">
+    <div class="diag-card"><div class="diag-icon">🪱</div><div class="diag-info"><div class="diag-name">Septal nephridium of earthworm</div><div class="diag-note">Most repeated zoology diagram</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🐸</div><div class="diag-info"><div class="diag-name">Internal structure of frog's heart</div><div class="diag-note">3 chambers — label all valves + vessels</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🦟</div><div class="diag-info"><div class="diag-name">Life cycle of Plasmodium (full)</div><div class="diag-note">Both human + mosquito stages</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🐸</div><div class="diag-info"><div class="diag-name">Alimentary canal of frog</div><div class="diag-note">Label all parts + 3 digestive glands</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🔬</div><div class="diag-info"><div class="diag-name">Conjugation in Paramecium</div><div class="diag-note">All stages with micronucleus movement</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🪱</div><div class="diag-info"><div class="diag-name">TS earthworm through pharynx</div><div class="diag-note">All tissue layers labelled</div></div></div>
+    <div class="diag-card"><div class="diag-icon">⚡</div><div class="diag-info"><div class="diag-name">Reflex arc diagram</div><div class="diag-note">Receptor → sensory → interneuron → motor → effector</div></div></div>
+    <div class="diag-card"><div class="diag-icon">🐸</div><div class="diag-info"><div class="diag-name">Frog reproductive organs</div><div class="diag-note">Male + female — Bidder's canal in male</div></div></div>
+  </div>
+
+  <div class="sec-title">Hour-by-hour plan — Day 2</div>
+  <div class="hour-plan">
+    <div class="hour-block">
+      <div><div class="hour-phase">Morning</div><div class="hour-time">6:00 – 8:00 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Earthworm (Pheretima)</strong> — Draw septal nephridium + TS pharynx. Write digestive system: mouth → pharynx → oesophagus → gizzard → intestine. Nephridia types: pharyngeal/integumentary/septal. Copulation + cocoon formation steps. Economic importance (5 points).</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Morning</div><div class="hour-time">8:00 – 10:00 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Frog (Rana tigrina)</strong> — Draw heart with all chambers, valves, truncus arteriosus. Alimentary canal + 3 digestive glands (liver, pancreas, gall bladder). Respiratory organs: skin / buccal / pulmonary. Female reproductive organs. Bidder's canal location. Write 8-mark LAQ answer structure.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Late Morning</div><div class="hour-time">10:00 – 11:30 AM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Plasmodium + Paramecium</strong> — Plasmodium: sporogony in mosquito + schizogony in human. Key terms: signet ring, trophozoite, merozoite, gametocytes. Draw full life cycle. Paramecium: trichocyst function (defense/offence/adhesion), conjugation process with diagram.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Late Morning</div><div class="hour-time">11:30 AM – 1:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Evolutionary Biology</strong> — Oparin-Haldane theory (4 steps). Miller-Urey gases: NH₃ + CH₄ + H₂ + H₂O (not CO₂!). Darwin's natural selection: 5 points + 3 drawbacks. Human evolution: Ramapithecus → Australopithecus → Homo habilis → Homo erectus → Homo neanderthalensis → Homo sapiens. Lamarckism vs Darwinism table.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Afternoon</div><div class="hour-time">2:00 – 3:30 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Phylum Classification MCQs</strong> — One-liner features: Porifera (pores+spongocoel+choanocytes), Cnidaria (nematocysts), Platyhelminthes (flatworm+flame cells), Annelida (seta+nephridia), Arthropoda (chitinous exoskeleton+jointed legs), Mollusca (mantle+radula), Echinodermata (water vascular system+tube feet), Chordata (notochord).</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Afternoon</div><div class="hour-time">3:30 – 5:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Biota &amp; Environment</strong> — Aquatic adaptation: primary (whales) vs secondary (seals). Terrestrial: cursorial/fossorial/arboreal/volant. Draw reflex arc. Fish migration: potamodromous + advantages. Air pollution: sources + effects + control (3 each). Pesticides effects on ecosystem.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Evening</div><div class="hour-time">5:00 – 6:30 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">MCQ Rapid Fire</strong> — Go through all MCQ answer keys from Sets 1–8. Focus on repeated MCQs: nitrogen bases, Miller-Urey composition, trichocyst function, Plasmodium stages, cranial capacity of ancestors, greenhouse gases, Bidder's canal location.</div>
+    </div>
+    <div class="hour-block">
+      <div><div class="hour-phase">Night</div><div class="hour-time">7:00 – 9:00 PM</div></div>
+      <div class="hour-tasks"><strong style="color:var(--green)">Full Zoology Revision</strong> — Redraw all 8 diagrams from memory. Write 2 LAQ answers timed (earthworm + frog/evolution). Review all definitions. Sleep early — brain consolidates memory during sleep.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- BRANCH TABLES -->
+<div id="branches" class="page">
+<div class="container">
+  <h2 class="page-title">Branch Tables for <span class="accent">Hard Topics</span></h2>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:2rem">Detailed breakdown tables for the most complex topics — use these to memorize efficiently</p>
+
+  <!-- TABLE 1: Cell Division -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🔬</span> Mitosis vs Meiosis — Complete Comparison</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Mitosis</th><th>Meiosis</th></tr></thead>
+        <tbody>
+          <tr><td>Occurs in</td><td>Somatic (body) cells</td><td>Reproductive cells (gonads)</td></tr>
+          <tr><td>Number of divisions</td><td>1</td><td>2 (Meiosis-I + Meiosis-II)</td></tr>
+          <tr><td>Daughter cells produced</td><td>2</td><td>4</td></tr>
+          <tr><td>Chromosome number</td><td>Same as parent (2n → 2n)</td><td>Halved (2n → n)</td></tr>
+          <tr><td>Crossing over</td><td>Does NOT occur</td><td>Occurs during Prophase-I</td></tr>
+          <tr><td>Pairing of homologues</td><td>Does NOT occur</td><td>Occurs (synapsis in Prophase-I)</td></tr>
+          <tr><td>Significance</td><td>Growth, repair, asexual reproduction</td><td>Genetic variation, sexual reproduction</td></tr>
+          <tr><td>Duration</td><td>Shorter</td><td>Longer</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 2: Meiosis stages -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">📊</span> Meiosis-I Stages — Key Events</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Key Event</th><th>What Happens to Chromosomes</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-purple">Leptotene</span></td><td>Chromosomes become visible</td><td>Thin thread-like chromosomes appear</td></tr>
+          <tr><td><span class="tag t-blue">Zygotene</span></td><td>Synapsis begins</td><td>Homologous chromosomes pair up (bivalent)</td></tr>
+          <tr><td><span class="tag t-green">Pachytene</span></td><td>Crossing over</td><td>Chiasmata form, genetic exchange occurs</td></tr>
+          <tr><td><span class="tag t-amber">Diplotene</span></td><td>Chromosomes repel</td><td>Bivalents separate but held at chiasmata</td></tr>
+          <tr><td><span class="tag t-red">Diakinesis</span></td><td>Final condensation</td><td>Chiasmata move to ends (terminalization)</td></tr>
+          <tr><td>Metaphase-I</td><td>Bivalents align at equator</td><td>Homologous pairs at metaphase plate</td></tr>
+          <tr><td>Anaphase-I</td><td>Disjunction</td><td>Homologous chromosomes separate to poles</td></tr>
+          <tr><td>Telophase-I</td><td>Two cells form</td><td>Each cell has haploid chromosomes (n)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 3: Angiosperm families -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🌸</span> 4 Angiosperm Families — Floral Formulas &amp; Key Features</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Family</th><th>Floral Formula</th><th>Key Feature</th><th>Examples</th><th>Economic Importance</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Solanaceae</strong><br><span class="tag t-red">Most asked</span></td>
+            <td style="font-family:monospace;font-size:12px">⊕ K(5) C(5) A5 G(2)</td>
+            <td>Bicarpellary syncarpous ovary, berry fruit, alternate leaves</td>
+            <td>Solanum tuberosum (potato), S. melongena (brinjal), Lycopersicum (tomato)</td>
+            <td>Food (potato, tomato), medicine (belladonna, datura)</td>
+          </tr>
+          <tr>
+            <td><strong>Brassicaceae</strong></td>
+            <td style="font-family:monospace;font-size:12px">⊕ K2+2 C4 A2+4 G(2)</td>
+            <td>Cruciform corolla, tetradynamous stamens (4 long + 2 short), siliqua fruit</td>
+            <td>Brassica oleracea (cabbage), B. campestris (mustard), Raphanus (radish)</td>
+            <td>Vegetables (cabbage, mustard), oil (mustard oil), medicine</td>
+          </tr>
+          <tr>
+            <td><strong>Fabaceae</strong></td>
+            <td style="font-family:monospace;font-size:12px">% K(5) C1+2+(2) A(9)+1 G1</td>
+            <td>Papilionaceous corolla, diadelphous stamens, legume/pod fruit</td>
+            <td>Pisum sativum (pea), Cicer arietinum (gram), Phaseolus (bean)</td>
+            <td>Food (peas, beans, lentils), nitrogen fixation (Rhizobium), fodder</td>
+          </tr>
+          <tr>
+            <td><strong>Liliaceae</strong></td>
+            <td style="font-family:monospace;font-size:12px">⊕ P3+3 A3+3 G(3)</td>
+            <td>Petaloid perianth (6 tepals), 6 stamens, superior ovary, capsule fruit</td>
+            <td>Allium cepa (onion), A. sativum (garlic), Aloe vera, Colchicum</td>
+            <td>Food (onion, garlic), medicine (Aloe vera, Colchicum for gout)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 4: Ecology -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">♻️</span> Ecological Pyramids — Complete Comparison</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Pyramid Type</th><th>What it shows</th><th>Always Upright?</th><th>Exception</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-green">Pyramid of Energy</span></td><td>Energy at each trophic level</td><td>✓ Always upright</td><td>No exception</td><td>Energy decreases 90% each level (10% law)</td></tr>
+          <tr><td><span class="tag t-blue">Pyramid of Numbers</span></td><td>Number of organisms at each level</td><td>✗ Can be inverted</td><td>Tree → insects → birds (inverted base)</td><td>Grassland: upright; Parasitic: irregular</td></tr>
+          <tr><td><span class="tag t-amber">Pyramid of Biomass</span></td><td>Total dry mass at each level</td><td>✗ Can be inverted</td><td>Aquatic ecosystems (phytoplankton biomass &lt; zooplankton)</td><td>Forest: upright; Ocean: inverted</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 5: IUCN Categories -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🦏</span> IUCN Red List Categories</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Definition</th><th>Nepal Example</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-gray">Extinct (EX)</span></td><td>No individuals remaining anywhere on Earth</td><td>Cheetah (locally extinct in Nepal)</td></tr>
+          <tr><td><span class="tag t-red">Critically Endangered (CR)</span></td><td>Extremely high risk of extinction in the wild</td><td>Gharial (Gavialis gangeticus)</td></tr>
+          <tr><td><span class="tag t-red">Endangered (EN)</span></td><td>High risk of extinction in the wild</td><td>Snow leopard, Red panda</td></tr>
+          <tr><td><span class="tag t-amber">Vulnerable (VU)</span></td><td>High risk if threats continue</td><td>One-horned rhinoceros (recovering)</td></tr>
+          <tr><td><span class="tag t-amber">Near Threatened (NT)</span></td><td>Close to qualifying for threatened category</td><td>—</td></tr>
+          <tr><td><span class="tag t-green">Least Concern (LC)</span></td><td>Not threatened; widespread and abundant</td><td>Common house sparrow</td></tr>
+          <tr><td><span class="tag t-blue">Data Deficient (DD)</span></td><td>Insufficient data to assess</td><td>Many invertebrate species</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 6: Fungi comparison -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🍄</span> Fungi Classes — Key Comparisons</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Phycomycetes</th><th>Ascomycetes</th><th>Basidiomycetes</th><th>Deuteromycetes</th></tr></thead>
+        <tbody>
+          <tr><td>Common name</td><td>Algal fungi</td><td>Sac fungi</td><td>Club fungi</td><td>Imperfect fungi</td></tr>
+          <tr><td>Spore type</td><td>Zoospores/Sporangiospores</td><td>Ascospores (in ascus)</td><td>Basidiospores (on basidium)</td><td>Conidia (asexual only)</td></tr>
+          <tr><td>Hyphae</td><td>Coenocytic (no septum)</td><td>Septate</td><td>Septate</td><td>Septate</td></tr>
+          <tr><td>Sexual reproduction</td><td>Zygospore</td><td>Ascospores</td><td>Basidiospores</td><td>Absent</td></tr>
+          <tr><td>Example</td><td>Mucor, Rhizopus</td><td>Yeast, Aspergillus, Penicillium</td><td>Mushroom, Agaricus, Puccinia</td><td>Alternaria, Trichoderma</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 7: Adaptation types -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🐾</span> Animal Adaptation — Complete Branch Table</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Sub-type</th><th>Definition</th><th>Adaptations</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>Aquatic</strong></td><td><span class="tag t-blue">Primary</span></td><td>Never lived on land</td><td>Streamlined body, gills, fins, lateral line</td><td>Fish, whales (secondary)</td></tr>
+          <tr><td><span class="tag t-green">Secondary</span></td><td>Returned to water from land</td><td>Webbed feet, nostrils on top, blubber</td><td>Seals, dolphins, penguins</td></tr>
+          <tr><td><strong>Cursorial</strong></td><td><span class="tag t-amber">Terrestrial</span></td><td>Running on ground</td><td>Long limbs, reduced toes, strong muscles</td><td>Horse, deer, ostrich, cheetah</td></tr>
+          <tr><td><strong>Fossorial</strong></td><td><span class="tag t-amber">Terrestrial</span></td><td>Burrowing underground</td><td>Short limbs, shovel-like forelimbs, small eyes</td><td>Mole, earthworm, mole rat</td></tr>
+          <tr><td><strong>Arboreal</strong></td><td><span class="tag t-amber">Terrestrial</span></td><td>Living in trees</td><td>Prehensile limbs, gripping feet, binocular vision</td><td>Monkey, squirrel, chameleon, tree frog</td></tr>
+          <tr><td><strong>Volant</strong></td><td><span class="tag t-purple">Aerial</span></td><td>Flying/gliding</td><td>Wings/patagium, hollow bones, strong chest muscles</td><td>Birds, bats, flying squirrel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 8: Human Evolution -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🧬</span> Human Evolution Sequence</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Era/MYA</th><th>Cranial Capacity</th><th>Key Features</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-gray">Dryopithecus</span></td><td>~25 MYA</td><td>—</td><td>Common ancestor of humans + apes. Quadrupedal. Forest dweller.</td></tr>
+          <tr><td><span class="tag t-gray">Ramapithecus</span></td><td>~15 MYA</td><td>—</td><td>Bipedal, small canines, lived in open grasslands</td></tr>
+          <tr><td><span class="tag t-blue">Australopithecus</span></td><td>~4 MYA</td><td>~500 cc</td><td>Fully bipedal, used stone tools, "Lucy" fossil, Africa</td></tr>
+          <tr><td><span class="tag t-blue">Homo habilis</span></td><td>~2 MYA</td><td>~700 cc</td><td>First true Homo. Tool user. "Handy man."</td></tr>
+          <tr><td><span class="tag t-amber">Homo erectus</span></td><td>~1.5 MYA</td><td>~900 cc</td><td>Used fire, migrated from Africa. Java man + Peking man (900–1200 cc).</td></tr>
+          <tr><td><span class="tag t-amber">Homo neanderthalensis</span></td><td>~100,000 yr</td><td>~1400 cc</td><td>Nearest ancestor of modern man. Buried dead, used tools.</td></tr>
+          <tr><td><span class="tag t-green">Homo sapiens sapiens</span></td><td>~35,000 yr</td><td>~1400 cc</td><td>Cro-Magnon man. Cave paintings. Modern anatomy. <em>Us.</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 9: Plasmodium stages -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🦟</span> Plasmodium Life Cycle — Stage-by-Stage</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Host</th><th>Location</th><th>Process</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-amber">Sporozoite</span></td><td>Mosquito → Human</td><td>Mosquito salivary gland</td><td>Infective stage. Injected into blood during mosquito bite.</td></tr>
+          <tr><td><span class="tag t-blue">Pre-erythrocytic schizogony</span></td><td>Human</td><td>Liver cells</td><td>Sporozoites invade liver cells → multiply → merozoites released</td></tr>
+          <tr><td><span class="tag t-blue">Erythrocytic schizogony</span></td><td>Human</td><td>RBC</td><td>Merozoites invade RBC → signet ring → trophozoite → schizont → merozoites</td></tr>
+          <tr><td><span class="tag t-red">Signet ring stage</span></td><td>Human</td><td>RBC</td><td>Early trophozoite stage with large vacuole pushing nucleus to side</td></tr>
+          <tr><td><span class="tag t-green">Gametocyte</span></td><td>Human</td><td>RBC</td><td>Some merozoites → male/female gametocytes (not infective to humans)</td></tr>
+          <tr><td><span class="tag t-purple">Sporogony</span></td><td>Mosquito</td><td>Midgut → salivary gland</td><td>Gametocytes → zygote → ookinete → oocyst → sporozoites</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 10: Pollution types -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🌫️</span> Environmental Pollution — Sources, Effects, Control</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Major Sources</th><th>Effects</th><th>Control Measures</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag t-blue">Air Pollution</span></td>
+            <td>Industries, vehicles, burning fossil fuels, volcanic eruption</td>
+            <td>Respiratory diseases (asthma, bronchitis), acid rain, greenhouse effect, ozone depletion</td>
+            <td>Electrostatic precipitators, scrubbers, catalytic converters, reforestation</td>
+          </tr>
+          <tr>
+            <td><span class="tag t-blue">Water Pollution</span></td>
+            <td>Industrial effluents, agricultural runoff (fertilizers/pesticides), sewage, oil spills</td>
+            <td>Eutrophication, BOD increase, death of aquatic life, cholera, typhoid</td>
+            <td>Sewage treatment plants, effluent treatment, restricted pesticide use</td>
+          </tr>
+          <tr>
+            <td><span class="tag t-amber">Soil Pollution</span></td>
+            <td>Pesticides, heavy metals, industrial waste, plastic</td>
+            <td>Kills soil microbes, reduces fertility, enters food chain (biomagnification)</td>
+            <td>Organic farming, bioremediation, proper waste disposal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 11: Phylum features -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🐾</span> Phylum Classification — 1-Liner Features for MCQ</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Phylum</th><th>Key Feature</th><th>Body Cavity</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Porifera</strong></td><td>Pores (ostia) + spongocoel, choanocytes, no true tissue</td><td>Acoelomate</td><td>Leucosolenia, Sycon, Spongilla</td></tr>
+          <tr><td><strong>Coelenterata (Cnidaria)</strong></td><td>Nematocysts (stinging cells), radial symmetry, diploblastic</td><td>Gastrovascular cavity</td><td>Hydra, Aurelia, Corals</td></tr>
+          <tr><td><strong>Platyhelminthes</strong></td><td>Flatworms, bilateral symmetry, flame cells (excretion), no body cavity</td><td>Acoelomate</td><td>Planaria, Fasciola, Taenia</td></tr>
+          <tr><td><strong>Nematoda (Aschelminthes)</strong></td><td>Roundworms, pseudocoelomate, cuticle, complete digestive system</td><td>Pseudocoelomate</td><td>Ascaris, Wuchereria, Ancylostoma</td></tr>
+          <tr><td><strong>Annelida</strong></td><td>Segmented worms, setae for locomotion, nephridia for excretion, closed circulatory system</td><td>True coelom</td><td>Pheretima, Nereis, Hirudo</td></tr>
+          <tr><td><strong>Arthropoda</strong></td><td>Chitinous exoskeleton, jointed legs, open circulatory system, largest phylum</td><td>Haemocoel</td><td>Insects, crabs, spiders, millipedes</td></tr>
+          <tr><td><strong>Mollusca</strong></td><td>Mantle (secretes shell), radula (rasping tongue), open circulatory system</td><td>True coelom</td><td>Pila, Octopus, Unio, Cuttle fish</td></tr>
+          <tr><td><strong>Echinodermata</strong></td><td>Water vascular system (tube feet), spiny skin, pentaradial symmetry, deuterostome</td><td>True coelom</td><td>Starfish, sea urchin, sea cucumber</td></tr>
+          <tr><td><strong>Chordata</strong></td><td>Notochord, dorsal hollow nerve cord, pharyngeal gill slits at some stage</td><td>True coelom</td><td>Fishes, amphibians, reptiles, birds, mammals</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 12: Darwin vs Lamarck vs Neo-Darwin -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🧬</span> Evolution Theories Compared</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Lamarckism</th><th>Darwinism</th><th>Neo-Darwinism</th></tr></thead>
+        <tbody>
+          <tr><td>Proposed by</td><td>Jean Baptiste Lamarck (1809)</td><td>Charles Darwin (1859)</td><td>Combination of Darwin + Genetics</td></tr>
+          <tr><td>Core idea</td><td>Use and disuse of organs; acquired characters inherited</td><td>Natural selection + survival of the fittest</td><td>Mutation + genetic recombination + natural selection + isolation</td></tr>
+          <tr><td>Variation source</td><td>Use/disuse creates variations</td><td>Natural variations exist</td><td>Mutations + sexual reproduction</td></tr>
+          <tr><td>Inheritance</td><td>Acquired characters inherited (WRONG)</td><td>Useful variations inherited</td><td>Only genetic mutations inherited</td></tr>
+          <tr><td>Example used</td><td>Giraffe's neck got longer by stretching</td><td>Peppered moth, finches</td><td>Genetic drift, Hardy-Weinberg law</td></tr>
+          <tr><td>Status</td><td>Rejected by Weismann (germplasm theory)</td><td>Mostly accepted; has drawbacks</td><td>Currently accepted modern synthesis</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TABLE 13: Earthworm Nephridia -->
+  <div class="branch-wrap">
+    <div class="branch-title"><span class="icon">🪱</span> Types of Nephridia in Earthworm</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Location</th><th>Opening</th><th>Function</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag t-amber">Pharyngeal nephridia</span></td><td>Segments 4–6 around pharynx (tufts)</td><td>Open into pharynx (enteronephric)</td><td>Excretion of nitrogenous waste from anterior segments</td></tr>
+          <tr><td><span class="tag t-blue">Integumentary nephridia</span></td><td>Segment 7 onwards on body wall</td><td>Open on body surface (exonephric)</td><td>Excretion through skin surface</td></tr>
+          <tr><td><span class="tag t-green">Septal nephridia</span></td><td>On both sides of each septum from segment 15 onwards</td><td>Open into intestine (enteronephric)</td><td>Main excretory organ; most numerous and important</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MUST-DO QUESTIONS -->
+<div id="qbank" class="page">
+<div class="container">
+  <h2 class="page-title">Must-Do <span class="accent">Questions</span></h2>
+
+  <div class="sec-title">Top 20 — Botany</div>
+  <div class="q-grid">
+    <div class="q-item"><span class="q-num">01</span><div class="q-text">Write floral characters of family Solanaceae with floral formula and floral diagram. Write the botanical name of any two plants of this family regarding medicinal and edible values. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">02</span><div class="q-text">Write floral characters of family Brassicaceae along with its floral formula and floral diagram. Write 2 economically important plants of this family. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">03</span><div class="q-text">Why is sexual reproduction important in lower grade plants like Fungi? Explain sexual reproduction of Yeast along with diagram. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">04</span><div class="q-text">Explain the life cycle of Mucor with well-labelled diagrams. Mention two economic importances of Fungi. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">05</span><div class="q-text">Meiosis cell division is important in life of organism since it maintains chromosomal stability. It is multi-step process and two successive steps. Explain with diagram (disjunction + stages). <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">06</span><div class="q-text">What is alternation of generations? How do Bryophytes and Pteridophytes differ in their mode of alternation of generations? <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">07</span><div class="q-text">How can ecological factors influence in pond ecosystem? Discuss it with suitable examples with respect to its structural and functional aspects. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">08</span><div class="q-text">Define nitrogen fixation. Illustrate nitrogen assimilation. Describe in short about the N₂ cycle in nature. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">09</span><div class="q-text">Explain any five ways — how microorganisms play an important role in the field of medicine. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">10</span><div class="q-text">Write any five characteristics of Chlorophyceae. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">11</span><div class="q-text">Why is Spirogyra called pond scum or water silk? Describe life cycle of Spirogyra in detail with necessary diagrams. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">12</span><div class="q-text">'Gymnosperm is an advanced group than Pteridophyta.' Justify this statement with any five points. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">13</span><div class="q-text">Give the concept of binomial system of nomenclature with example. Explain the advantages of binomial system of nomenclature. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">14</span><div class="q-text">How can fruit play an important role for continuity of generation in plant life? Compare simple and multiple fruit in two points. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">15</span><div class="q-text">Describe greenhouse effect and climate change, depletion of ozone layer, acid rain and biological invasion. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">16</span><div class="q-text">Viruses are biological puzzles — justify. What is the genetic material of viruses? Mention two living and two non-living characters of Virus. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">17</span><div class="q-text">How does microbial biotechnology play a significant role in medicine? Draw a well-labelled diagram of bacterial cell. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">18</span><div class="q-text">Why does national park lie under in-situ conservation? Describe briefly different types of vegetation found in Nepal up to 3000 m altitude. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">19</span><div class="q-text">Define biogeochemical cycle. Draw a nitrogen cycle and mention its significance in natural ecosystem. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">20</span><div class="q-text">Who developed five kingdom system of classification? Name the kingdoms. Describe the five kingdom system with its advantages and disadvantages. <span class="tag t-red q-type">LAQ 8</span></div></div>
+  </div>
+
+  <div class="sec-title">Top 20 — Zoology</div>
+  <div class="q-grid">
+    <div class="q-item"><span class="q-num">01</span><div class="q-text">How is excretion performed in earthworm? Explain in analytical approach the structure of septal nephridia of earthworm with labeled diagram. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">02</span><div class="q-text">Describe the structure of alimentary canal of Earthworm. Discuss food and feeding mechanisms of Earthworm. How does the process of food digestion occur in Earthworm? <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">03</span><div class="q-text">Give self-explanatory diagram to show internal structure of heart of frog. Discuss blood vascular system (structure and working mechanism of heart). <span class="tag t-amber q-type">SAQ 4</span></div></div>
+    <div class="q-item"><span class="q-num">04</span><div class="q-text">How can pancreas of a frog play an important role in digestion? Explain it in reference to physiology of intestinal digestion. What is digestion? Explain the structure of alimentary canal of frog with labelled diagram. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">05</span><div class="q-text">Describe the female reproductive organs of Earthworm. Why is self-fertilization not possible in Earthworm though it is hermaphrodite? <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">06</span><div class="q-text">What is ootheca? How does cocoon formation take place in earthworm? Write a short note on economic importance of earthworm. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">07</span><div class="q-text">Explain the asexual cycle of Plasmodium that occurs in red blood corpuscles of the human host. Draw a diagram to illustrate sporogony of Plasmodium. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">08</span><div class="q-text">Define conjugation. Describe the process of conjugation in Paramecium with well-labelled diagram. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">09</span><div class="q-text">The primitive Earth had a reducing atmosphere. How was life originated in the primitive Earth according to Oparin-Haldane theory? <span class="tag t-amber q-type">SAQ 4</span></div></div>
+    <div class="q-item"><span class="q-num">10</span><div class="q-text">Critically analyze Darwin's theory of natural selection. Explain how speciation occurs according to Neo-Darwinism. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">11</span><div class="q-text">Describe Darwin's theory of natural selection. Also point out its drawbacks. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">12</span><div class="q-text">Position of man in animal kingdom. Differences between new world monkeys and old world monkeys, apes and man. Evolution of modern man starting from anthropoid ancestor. <span class="tag t-red q-type">LAQ 8</span></div></div>
+    <div class="q-item"><span class="q-num">13</span><div class="q-text">What is crossing over? What are the significances of crossing over? Give important differences between Mitosis and Meiosis. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">14</span><div class="q-text">Describe the respiratory system of frog (respiratory organs and physiology of respiration). <span class="tag t-amber q-type">SAQ 4</span></div></div>
+    <div class="q-item"><span class="q-num">15</span><div class="q-text">Define potamodromous migration. Explain the cause and advantages of fish migration. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">16</span><div class="q-text">What are pollutants? Explain the causes and control measures of water pollution. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">17</span><div class="q-text">What are the effects of air pollution? Suggest the ways to protect oneself and the environment from the adverse effects of air pollution. <span class="tag t-amber q-type">SAQ 4</span></div></div>
+    <div class="q-item"><span class="q-num">18</span><div class="q-text">Give the function of seminal vesicles and prostate glands. Mention the types of nephridia and describe septal nephridium with labelled diagram. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">19</span><div class="q-text">What is fossil and the different types of fossils? Describe Miller and Urey's experiment. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+    <div class="q-item"><span class="q-num">20</span><div class="q-text">Name the kidney tubule with their function that takes part in reproduction only. Discuss physiology of digestion in brief. OR — Give major function of Nephiridia and typhlosole. Describe structure of seta in earthworm. <span class="tag t-amber q-type">SAQ 5</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- HISSAN PREDICTION -->
+<div id="predict" class="page">
+<div class="container">
+  <h2 class="page-title">HISSAN Exam <span class="accent">Prediction</span></h2>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:2rem">Based on pattern analysis of Sets 1–8 from your question bank</p>
+
+  <div class="sec-title">MCQs almost guaranteed — Botany</div>
+  <div class="pred-grid">
+    <div class="pred-card a">
+      <div class="pred-head">Repeated every year</div>
+      <ul class="pred-list">
+        <li>Nitrogen base pairing: A=T, G≡C</li>
+        <li>In-situ conservation — which is NOT (Botanical garden = ex-situ)</li>
+        <li>Greenhouse gas — which is NOT a greenhouse gas (Oxygen)</li>
+        <li>Prop root function — fixation/support</li>
+        <li>Lysosomes = suicidal bag (hydrolytic enzymes)</li>
+        <li>Phyllotaxy type identification from diagram</li>
+        <li>Starch is polymer of — Glucose</li>
+        <li>Seeds in seed bank — tolerance to desiccation + low temperature</li>
+      </ul>
+    </div>
+    <div class="pred-card a">
+      <div class="pred-head">High-probability MCQ</div>
+      <ul class="pred-list">
+        <li>Spirogyra belongs to order — Conjugales</li>
+        <li>"Red rust in tea" — caused by algae → Phycology discipline</li>
+        <li>Biogenesis of primary lysosome occurs in — Golgi complex</li>
+        <li>Which produces naked seeds → Gymnosperm</li>
+        <li>Bacteria and fungi in ecosystem — Decomposers</li>
+        <li>Virus proved non-living by — Crystallization</li>
+        <li>Water = polar molecule because — partial charges on H and O</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title">MCQs almost guaranteed — Zoology</div>
+  <div class="pred-grid">
+    <div class="pred-card a">
+      <div class="pred-head">Repeated every year</div>
+      <ul class="pred-list">
+        <li>Trichocyst function — defense, offence, and adhesion</li>
+        <li>Nearest ancestor of modern man — Homo sapiens neanderthalensis</li>
+        <li>Primordial soup named by — Oparin and Haldane</li>
+        <li>Miller-Urey experiment gases — Ammonia, Methane, Hydrogen, water vapour</li>
+        <li>Industrial melanism = Directional selection</li>
+        <li>Peppered moth phenomenon = Natural selection</li>
+        <li>Bidder's canal found in — Testes (male frog)</li>
+      </ul>
+    </div>
+    <div class="pred-card a">
+      <div class="pred-head">High-probability MCQ</div>
+      <ul class="pred-list">
+        <li>Lysogenic cycle = multiplication of viral DNA independent of bacterial DNA</li>
+        <li>Rhynchocoel = fluid-filled cavity (Nemertea)</li>
+        <li>Mollusca example — Cuttle fish (not starfish = Echinoderm)</li>
+        <li>Which organelle helps defense in Paramecium — Trichocyst</li>
+        <li>Post and tail in — Scorpion (Arthropoda)</li>
+        <li>Malaria results from — Merozoites injected by mosquito</li>
+        <li>Cranial capacity of Peking man — 900–1200 cc</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title">Most probable LAQs (8-mark questions)</div>
+  <div class="pred-grid">
+    <div class="pred-card g">
+      <div class="pred-head">Botany LAQ — master these</div>
+      <ul class="pred-list">
+        <li>Solanaceae floral characters + floral diagram + 2 medicinal plants</li>
+        <li>Life cycle of Mucor + diagram + economic importance</li>
+        <li>Meiosis cell division — significance + staged diagram</li>
+        <li>Five kingdom classification — criteria + advantages/disadvantages</li>
+        <li>Spirogyra life cycle OR Brassicaceae floral characters</li>
+      </ul>
+    </div>
+    <div class="pred-card g">
+      <div class="pred-head">Zoology LAQ — master these</div>
+      <ul class="pred-list">
+        <li>Excretion in earthworm — septal nephridia with labelled diagram</li>
+        <li>Digestion in frog — alimentary canal + digestive glands + diagram</li>
+        <li>Darwin's natural selection + drawbacks OR Neo-Darwinism speciation</li>
+        <li>Conjugation in Paramecium with diagram</li>
+        <li>Human evolution from anthropoid ancestor</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title">Definitions that repeat every single year</div>
+  <div class="table-wrap" style="margin-bottom:2rem">
+    <table>
+      <thead><tr><th>Term</th><th>Definition (memorize exactly)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Alternation of generations</strong></td><td>The alternation of haploid gametophytic phase and diploid sporophytic phase in the life cycle of a plant</td></tr>
+        <tr><td><strong>Binomial nomenclature</strong></td><td>The system of giving each organism a scientific name consisting of two Latin words — genus and species</td></tr>
+        <tr><td><strong>In-situ conservation</strong></td><td>Conservation of organisms in their natural habitat (national parks, wildlife reserves, biosphere reserves)</td></tr>
+        <tr><td><strong>Ex-situ conservation</strong></td><td>Conservation of organisms outside their natural habitat (botanical gardens, zoos, seed banks, DNA banks)</td></tr>
+        <tr><td><strong>Ecological succession</strong></td><td>The gradual and sequential change in the community structure of an ecosystem over time in a given area</td></tr>
+        <tr><td><strong>Natural selection</strong></td><td>The process by which organisms with favorable variations survive and reproduce while those with unfavorable ones perish</td></tr>
+        <tr><td><strong>Schizogony</strong></td><td>Asexual reproduction by multiple fission, occurring in the liver and RBCs of the human host in Plasmodium</td></tr>
+        <tr><td><strong>Sporogony</strong></td><td>Sexual reproduction phase of Plasmodium that occurs in the body of female Anopheles mosquito</td></tr>
+        <tr><td><strong>Conjugation (Paramecium)</strong></td><td>Temporary union of two compatible individuals for exchange of micronuclei — a form of sexual reproduction</td></tr>
+        <tr><td><strong>Potamodromous migration</strong></td><td>Migration of fish from one freshwater body to another freshwater body for spawning (e.g., salmon, hilsa)</td></tr>
+        <tr><td><strong>Ootheca</strong></td><td>A protective egg case or egg mass produced by certain invertebrates including earthworm and cockroach</td></tr>
+        <tr><td><strong>Industrial melanism</strong></td><td>The phenomenon where dark-colored individuals of a species become more common in industrial areas due to natural selection</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-title">Common mistakes — do NOT make these</div>
+  <div class="pred-grid">
+    <div class="pred-card r">
+      <div class="pred-head">Botany mistakes</div>
+      <ul class="pred-list">
+        <li>Writing floral formula without floral diagram — loses 2 marks automatically</li>
+        <li>Confusing in-situ (national parks) with ex-situ (botanical gardens)</li>
+        <li>Forgetting economic importance — always asked alongside structure</li>
+        <li>Drawing Mucor life cycle without labelling sporangiophore and zygospore</li>
+        <li>Not writing scientific names in italics/underlined format</li>
+      </ul>
+    </div>
+    <div class="pred-card r">
+      <div class="pred-head">Zoology mistakes</div>
+      <ul class="pred-list">
+        <li>Drawing Plasmodium life cycle with only human stage — must show mosquito stage too</li>
+        <li>Confusing trichocyst (Paramecium) with nematocyst (Cnidaria only)</li>
+        <li>Writing Miller-Urey gases as CO₂ — it is CH₄ (methane), NOT carbon dioxide</li>
+        <li>Confusing nearest ancestor: answer is Homo neanderthalensis, not Homo erectus</li>
+        <li>Not labelling diagrams — minimum 4–5 labels needed for full marks</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CHECKLIST -->
+<div id="checklist" class="page">
+<div class="container">
+  <h2 class="page-title">Last-Day <span class="accent">Revision Checklist</span></h2>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:1.5rem">Click each item to mark it done. Track your preparation progress.</p>
+
+  <div class="sec-title">Botany — must complete</div>
+  <div class="checklist">
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>All 4 floral diagrams drawn from memory</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Floral formulas of all 4 families memorized</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Life cycle of Mucor drawn (all stages labelled)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Yeast sexual reproduction steps written</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Meiosis-I stages diagram done</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Mitosis vs Meiosis difference table written</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Bacterial cell diagram labelled (7+ parts)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Spirogyra conjugation diagram drawn</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Nitrogen cycle diagram memorized</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Ecological pyramids — 3 types with exceptions</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>IUCN categories (7 categories + examples)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>In-situ vs ex-situ examples confirmed</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Greenhouse gases (which is NOT one = oxygen)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Biotechnology in medicine — 5 points written</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Practiced writing 1 full Solanaceae LAQ</span></div>
+  </div>
+
+  <div class="sec-title">Zoology — must complete</div>
+  <div class="checklist">
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Septal nephridium diagram drawn (5+ labels)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>TS earthworm through pharynx drawn</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Frog's heart diagram labelled (all chambers)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Frog's alimentary canal + 3 digestive glands</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Plasmodium full life cycle drawn</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Signet ring, trophozoite, merozoite, gametocyte — terms known</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Conjugation in Paramecium drawn</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Reflex arc diagram labelled</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Human evolution sequence (6 stages) memorized</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Miller-Urey gases confirmed (NH₃+CH₄+H₂+H₂O)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Darwin's natural selection 5 points + 3 drawbacks</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Phylum 1-liner features for all 9 phyla</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Nephridia types — 3 types + locations</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Animal adaptation types (cursorial/fossorial/arboreal/volant)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Practiced writing 1 full earthworm or frog LAQ</span></div>
+  </div>
+
+  <div class="sec-title">MCQ revision</div>
+  <div class="checklist">
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Reviewed all MCQ answer keys — Sets 1–4</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Reviewed all MCQ answer keys — Sets 5–8</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Nitrogen base pairing confirmed (A=T, G≡C)</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Nearest ancestor = Homo neanderthalensis ✓</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"></div><span>Trichocyst = defense + offence + adhesion ✓</span></div>
+  </div>
+
+  <div id="progress-bar" style="margin-top:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+      <span style="font-size:13px;font-weight:600;color:var(--text)">Overall preparation</span>
+      <span id="pct" style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--green)">0%</span>
+    </div>
+    <div style="background:var(--border);border-radius:20px;height:8px;overflow:hidden">
+      <div id="bar" style="height:100%;background:var(--green);border-radius:20px;width:0%;transition:width .3s ease"></div>
+    </div>
+    <div id="msg" style="font-size:12px;color:var(--muted);margin-top:.5rem">Start ticking off items above!</div>
+  </div>
+</div>
+</div>
+
+<script>
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggle(el) {
+  el.classList.toggle('done');
+  updateProgress();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('.check-item').length;
+  const done = document.querySelectorAll('.check-item.done').length;
+  const pct = Math.round(done / all * 100);
+  document.getElementById('pct').textContent = pct + '%';
+  document.getElementById('bar').style.width = pct + '%';
+  const msgs = ['Start ticking off items above!','Keep going — every item counts!','Good progress! Don\'t stop now.','Over halfway there — you\'re doing great!','Almost ready — final push!','100% prepared. Go ace that exam! 🎯'];
+  const idx = pct === 100 ? 5 : Math.floor(pct / 20);
+  document.getElementById('msg').textContent = msgs[idx];
+}
+</script>
+</body>
+</html>
